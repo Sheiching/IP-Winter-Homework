@@ -1,0 +1,35 @@
+create database sheiching;
+use sheiching;
+create table students(id int,
+     name varchar (30),
+     class int,
+     sec char,
+     rno int ,
+     address varchar (30));
+desc students;
+create table class(id int,
+     name varchar (30));
+
+show tables;
+
+insert into students values (1,”rohit”,9,”A”,4,”Lucknkow”);
+insert into students values (2,”kajur”,10,”B”,3,"Veitnam”);
+insert into students values (3,”John”,11,”C”,5,”Los Santos”);
+insert into students values (4,”CJ”,12,”E”,6,”San Andreas”);
+select*from students;
+select name,class from students;
+select distinct sec from students;
+select name,class from students where class>9;
+select*from students order by class,name;
+update students set class=10 where name like “Kajur”;
+ alter table students add marks int;
+select name,class from students where name like”Kajur”;
+Select max(class),min(id) from students;
+alter table students add primary key (id);
+desc students;
+alter table students add foreign key(class) references class(id);
+desc students;
+alter table students drop rno;
+alter table students drop primary key;
+alter table students modify marks decimal;
+drop table class;
